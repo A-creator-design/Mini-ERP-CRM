@@ -126,8 +126,8 @@ export class ChallansService {
         }
       }
 
-      return challan;
-    });
+     return challan;
+    }, { timeout: 20000, maxWait: 10000 });
   }
 
   /**
@@ -202,7 +202,7 @@ export class ChallansService {
         data: { status: newStatus },
         include: { items: true, customer: true },
       });
-    });
+    }, { timeout: 20000, maxWait: 10000 });
   }
 }
 

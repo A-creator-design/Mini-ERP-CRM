@@ -78,9 +78,8 @@ export class ProductsService {
       const movement = await tx.stockMovement.create({
         data: { productId: id, quantityChanged: quantity, movementType, reason, createdById },
       });
-
-      return { product: updated, movement };
-    });
+return { product: updated, movement };
+    }, { timeout: 20000, maxWait: 10000 });
   }
 
   private async assertExists(id: string) {
